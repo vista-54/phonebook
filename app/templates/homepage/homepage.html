@@ -1,11 +1,17 @@
 <div class="homepage">
-    <div class="title">
-        Погода в городе <b>{{vm.weather.name}}</b>
-    </div>
-    <div class="temp">
-        Температура: {{vm.weather.main.temp}}
-    </div>
-    <div class="wind">
-        Ветер: {{vm.weather.wind.speed}}м/с
+
+    <md-list-item ng-repeat="person in vm.people" ui-sref="contact-view({id:person.id})" class="noright">
+        <p>{{ person.name }}</p>
+        <md-checkbox class="md-secondary" ng-model="person.selected"></md-checkbox>
+        <md-icon md-svg-icon="communication:email" ng-click="doSecondaryAction($event)" aria-label="Send Email"
+                 class="md-secondary md-hue-3"></md-icon>
+
+    </md-list-item>
+    <div style="    position: absolute;
+    bottom: 0;
+    right: 0;">
+        <md-button style="font-size: 24px;" class="md-fab" aria-label="Eat cake" ui-sref="add-contact">
+            +
+        </md-button>
     </div>
 </div>

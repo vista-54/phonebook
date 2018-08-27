@@ -5,11 +5,10 @@
         .controller('HomepageController', HomepageController);
 
 
-    HomepageController.$inject = ['data'];
+    HomepageController.$inject = ['data', '$localStorage'];
 
-    function HomepageController(data) {
+    function HomepageController(data, $localStorage) {
         let vm = this;
-
-        vm.weather = data;
+        vm.people = typeof $localStorage.contacts !== 'undefined' ? $localStorage.contacts : []
     }
 })();
